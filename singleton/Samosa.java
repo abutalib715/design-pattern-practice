@@ -10,9 +10,13 @@ public class Samosa {
     public static Samosa getSamosa() {
 
         if (samosa == null) {
-            samosa = new Samosa();
+            // THREAD SAFETY - This block will not execute at the same time on thread
+            synchronized () {
+                if (samosa == null) {
+                    samosa = new Samosa();
+                }
+            }
         }
-
         return samosa;
     }
 }
