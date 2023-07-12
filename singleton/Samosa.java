@@ -1,4 +1,5 @@
-public class Samosa {
+import java.io.Serializable;
+public class Samosa implements Serializable {
     private static Samosa samosa;
 
     // Constructor
@@ -21,4 +22,19 @@ public class Samosa {
         }
         return samosa;
     }
+
+    // PREVENTING DESERIALIZATION SINGLETON BREAK ISSUE
+    public Object readResolve(){
+        return samosa;
+    }
 }
+
+
+//// CREATE OBJECT VIA ENUM
+//public enum Samosa {
+//    INSTANCE;
+//
+//    public void test(){
+//        System.out.println("Hello, testing!");
+//    }
+//}

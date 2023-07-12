@@ -1,4 +1,9 @@
 import java.lang.reflect.Constructor;
+import java.io.ObjectOutputStream;
+import java.io.ObjectInputStream;
+import java.io.FileOutputStream;
+import java.io.FileInputStream;
+
 
 public class Example {
     public static void main(String[] args) throws Exception {
@@ -21,12 +26,31 @@ public class Example {
         *
         * */
 
+//        Samosa s1 = Samosa.getSamosa();
+//        System.out.println(s1.hashCode());
+//
+//        // CREATE OBJECT VIA ENUM
+//        Samosa s1 = Samosa.INSTANCE;
+//        System.out.println(s1.hashCode());
+//        s1.test();
+
+//        // MODIFING CLASS ON RUNTIME - REFLECTION API
+//        Constructor<Samosa> constructor = Samosa.class.getDeclaredConstructor(); // Get constructor reference
+//        constructor.setAccessible(true);
+//        Samosa s3 = constructor.newInstance();
+//        System.out.println(s3.hashCode());
+
+
+        // DESERIALIZATION
         Samosa s1 = Samosa.getSamosa();
         System.out.println(s1.hashCode());
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("abc.ob"));
+        oos.writeObject(s1);
+        System.out.println("Serialization done..");
 
-        Constructor<Samosa> constructor = Samosa.class.getDeclaredConstructor(); // Get constructor reference
-        constructor.setAccessible(true);
-        Samosa s2 = constructor.newInstance();
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream("abc.ob"));
+        Samosa s2 = (Samosa) ois.readObject();
+
         System.out.println(s2.hashCode());
     }
 }
