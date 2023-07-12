@@ -11,7 +11,7 @@ public class Samosa {
 
         if (samosa == null) {
             // THREAD SAFETY - This block will not execute at the same time on thread
-            synchronized () {
+            synchronized (Samosa.class) {
                 if (samosa == null) {
                     samosa = new Samosa();
                 }
