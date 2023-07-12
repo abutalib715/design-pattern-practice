@@ -13,8 +13,9 @@ public class Example {
 //        System.out.println(jalebi2.hashCode());
 
         /*
-        * Break Singleton Pattern
-        *   Reflection API
+        * 1. Reflection API to Break Singleton Pattern
+        * Solution 1: if object is there - throw exception
+        * Solution 2: Use enum
         *
         *
         *
