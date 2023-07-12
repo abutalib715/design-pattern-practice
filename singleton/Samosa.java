@@ -1,5 +1,7 @@
 import java.io.Serializable;
-public class Samosa implements Serializable {
+import java.lang.Cloneable;
+
+public class Samosa implements Serializable, Cloneable {
     private static Samosa samosa;
 
     // Constructor
@@ -27,6 +29,13 @@ public class Samosa implements Serializable {
     public Object readResolve(){
         return samosa;
     }
+
+    public Object clone() throws CloneNotSupportedException{
+        return samosa;
+    }
+
+
+
 }
 
 

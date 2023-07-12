@@ -41,16 +41,23 @@ public class Example {
 //        System.out.println(s3.hashCode());
 
 
-        // DESERIALIZATION
+//        // DESERIALIZATION
+//        Samosa s1 = Samosa.getSamosa();
+//        System.out.println(s1.hashCode());
+//        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("abc.ob"));
+//        oos.writeObject(s1);
+//        System.out.println("Serialization done..");
+//
+//        ObjectInputStream ois = new ObjectInputStream(new FileInputStream("abc.ob"));
+//        Samosa s2 = (Samosa) ois.readObject();
+//
+//        System.out.println(s2.hashCode());
+
+        // OBJECT CLONING
         Samosa s1 = Samosa.getSamosa();
         System.out.println(s1.hashCode());
-        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("abc.ob"));
-        oos.writeObject(s1);
-        System.out.println("Serialization done..");
 
-        ObjectInputStream ois = new ObjectInputStream(new FileInputStream("abc.ob"));
-        Samosa s2 = (Samosa) ois.readObject();
-
+        Samosa s2 = (Samosa) s1.clone();
         System.out.println(s2.hashCode());
     }
 }
