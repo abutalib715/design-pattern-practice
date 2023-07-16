@@ -7,5 +7,9 @@ public class Example {
         Employee employee2 = EmployeeFactory.getEmployee(new SoftwareEngineerFactory());
         System.out.println("Name : " + employee2.name());
         System.out.println("Salary : " + employee2.salary());
+
+        Employee employee3 = EmployeeFactory.getEmployee(new GraphicDesignerFactory());
+        System.out.println("Name : " + employee3.name());
+        System.out.println("Salary : " + employee3.salary());
     }
 }
